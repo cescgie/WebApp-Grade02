@@ -1,6 +1,9 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer'])
-  .config(function($stateProvider, $urlRouterProvider, $authProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    
     /**
      * Helper auth functions
      */
@@ -64,58 +67,4 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
       });
     $urlRouterProvider.otherwise('/');
 
-    /**
-     *  Satellizer config
-     */
-    $authProvider.facebook({
-      clientId: '603122136500203'
-    });
-
-    $authProvider.google({
-      clientId: 'YOUR_GOOGLE_CLIENT_ID'
-    });
-
-    $authProvider.github({
-      clientId: 'YOUR_GITHUB_CLIENT_ID'
-    });
-
-    $authProvider.linkedin({
-      clientId: 'YOUR_LINKEDIN_CLIENT_ID'
-    });
-
-    $authProvider.instagram({
-      clientId: 'YOUR_INSTAGRAM_CLIENT_ID'
-    });
-
-    $authProvider.yahoo({
-      clientId: 'YOUR_YAHOO_CLIENT_ID'
-    });
-
-    $authProvider.live({
-      clientId: 'YOUR_MICROSOFT_CLIENT_ID'
-    });
-
-    $authProvider.twitch({
-      clientId: 'YOUR_TWITCH_CLIENT_ID'
-    });
-
-    $authProvider.bitbucket({
-      clientId: 'YOUR_BITBUCKET_CLIENT_ID'
-    });
-
-    $authProvider.spotify({
-      clientId: 'YOUR_SPOTIFY_CLIENT_ID'
-    });
-
-    $authProvider.twitter({
-      url: '/auth/twitter'
-    });
-
-    $authProvider.oauth2({
-      name: 'foursquare',
-      url: '/auth/foursquare',
-      clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
-      redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
-      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
-    });
   });

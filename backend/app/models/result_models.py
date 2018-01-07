@@ -24,7 +24,7 @@ class Result(db.Model):
     freie_wahler = db.Column(db.Integer())
     partei_mensch_umwelt_tierschutz = db.Column(db.Integer())
     okologisch_demokratische_partei= db.Column(db.Integer())
-    partei_fur_arbeit_rechtsstaat = db.Column(db.Integer())
+    okologpartei_fur_arbeit_rechtsstaatisch_demokratische_partei= db.Column(db.Integer())
     bayernpartei = db.Column(db.Integer())
     ab_jetzt_demokratie_durch_volksabstimmung = db.Column(db.Integer())
     partei_der_vernunft = db.Column(db.Integer())

@@ -8,8 +8,8 @@ Flask application for Peer Review System based on [Flask-User starter app](https
     `source env/bin/activate`
 - Install requirements<br>
     `pip install -r requirements.txt`
-- Create DB tables and populate the roles and users tables<br>
-    `python manage.py init_db`
+- Create DB tables and populate the results<br>
+    `python manage.py init_db_api`
 - Run with debug<br>
     `python manage.py runserver`
 

@@ -2,4 +2,4 @@
 # a Python package so it can be accessed using the 'import' statement.
 
 from .init_db import InitDbCommand
-from .import_result import ImportResultCommand
+from .init_db_api import InitDbApiCommand

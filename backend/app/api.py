@@ -58,11 +58,21 @@ def getBundesland():
         land.append(data)
     return jsonify(land)
 
-
-# Get total result        
+# Get all parties        
 @api_blueprint.route('/api/parties/all')
 def getAllParties():
     result = Result.query.filter(Result.nr == 500).first()
     dicti = result.__dict__
     data = formatResultParties(dicti)
     return jsonify(data)
+
+# Get all wahlkreis from one bundesland       
+@api_blueprint.route('/api/wahlkreis/all/<nr>')
+def getAllWahlkreis(nr):
+    result = Result.query.filter(Result.gehoert_zu == nr).all()
+    wahlkreis = []
+    for x in result:
+        dicti = x.__dict__
+        data = formatResult(dicti)
+        wahlkreis.append(data)
+    return jsonify(wahlkreis)

@@ -1,11 +1,35 @@
 angular.module('MyApp')
-  .controller('HomeCtrl', function($scope, $http, Test) {
-    Test.getJson()
+  .controller('HomeCtrl', function($scope, $http, Result) {
+    
+    index();
+
+    function index(){
+      Result.getResultBundesland()
         .then(function(response) {
-          console.log(response);
+          $scope.bundesland = response.data;
         })
         .catch(function(response) {
-          console.log(response);
-          //toastr.error(response.data.message, response.status);
+          toastr.error(response.data.message, response.status);
         });
+
+      Result.getTotalResult()
+        .then(function(response) {
+          $scope.result = response.data;
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+      
+      Result.getAllParties()
+        .then(function(response) {
+          $scope.parties = response.data;
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+    }
+      
+    $scope.selectBundesland = function(nr){
+      console.log(nr)
+    }
   });

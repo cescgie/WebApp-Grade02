@@ -3,35 +3,34 @@
     <div class="panel-heading">Home Page</div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-sm-6">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.</p>
-          <p><a class="btn btn-primary" href="#">View details »</a></p>
+        <div class="col-sm-3">
+          <h2>Bundesland</h2>
+           <div ng-repeat="item in bundesland">
+              <a href="javascript:void(0)" data-ng-click="selectBundesland(item.nr)"> {{item.gebiet}}</a>
+            </div>
         </div>
-        <div class="col-sm-6">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.</p>
-          <p><a class="btn btn-primary" href="#">View details »</a></p>
+        <div class="col-sm-3">
+          <h2>Wahlkreis</h2>
+         
         </div>
+        <div class="col-sm-3">
+          <h2>Ergebnis</h2>
+          <div ng-repeat="item in parties">
+            {{item}} ({{result[item]}})
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h2>Graph</h2>
+            
+          </div>
       </div>
     </div>
     <div class="panel-footer text-center">
-      <ul class="list-inline">
-        <li><i class="ion-star"></i> {{stars | number}} stars</li>
-        <li><i class="ion-fork-repo"></i> {{forks | number}} forks</li>
-        <li><i class="ion-pull-request"></i> {{issues | number}} issues</li>
-      </ul>
+
     </div>
   </div>
 </div>
 <div class="text-center">
-  <a class="btn btn-default" href="https://github.com/sahat/satellizer"><i class="ion-social-github"></i> GitHub project</a>
-  <a class="btn btn-default" href="https://github.com/sahat/satellizer/issues/new"><i class="ion-bug"></i> Report issue</a>
+
 </div>
 </div>

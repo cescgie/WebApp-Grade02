@@ -11,14 +11,33 @@ from flask_jsonpify import jsonify
 nr = []
 for x in range(501, 517):
     nr.append(x)
-    
+
 # Format to valid result
 def formatResult(dataRow):
     data = {}
     for key in dataRow.keys():
-        if(key != '_sa_instance_state'):
+        if(key != '_sa_instance_state' ):
             data[key] = dataRow[key]
     return data
+
+# Format to valid result all parties
+def formatResultParties(dataRow):
+    parties = []
+    for key in dataRow.keys():
+        if(key != '_sa_instance_state'
+        and key != 'ubrige'
+        and key != 'gueltige' 
+        and key != 'id' 
+        and key != 'nr' 
+        and key != 'gebiet' 
+        and key != 'gehoert_zu' 
+        and key != 'wahlberechtigte' 
+        and key != 'waehler' 
+        and key != 'ungueltige' 
+        and key != 'gueltige'
+        ):  
+            parties.append(key)
+    return parties
 
 # Get total result        
 @api_blueprint.route('/api/result/all')
@@ -38,3 +57,12 @@ def getBundesland():
         data = formatResult(dicti)
         land.append(data)
     return jsonify(land)
+
+
+# Get total result        
+@api_blueprint.route('/api/parties/all')
+def getAllParties():
+    result = Result.query.filter(Result.nr == 500).first()
+    dicti = result.__dict__
+    data = formatResultParties(dicti)
+    return jsonify(data)

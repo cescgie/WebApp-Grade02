@@ -41,8 +41,8 @@ angular.module('MyApp')
         .catch(function(response) {
           toastr.error(response.data.message, response.status);
         });
-        
-      Result.getResultOneBundesland(nr)
+
+      Result.getResultOneArea(nr)
         .then(function(response) {
           $scope.result = response.data;
         })
@@ -52,4 +52,17 @@ angular.module('MyApp')
 
       allParties();
     }
+
+    $scope.selectWahlkreis = function(nr){
+      Result.getResultOneArea(nr)
+        .then(function(response) {
+          $scope.result = response.data;
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+
+      allParties();
+    }
+
   });

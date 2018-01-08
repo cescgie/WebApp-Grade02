@@ -12,7 +12,7 @@
         <div class="col-sm-3">
           <h2>Wahlkreis</h2>
           <div ng-repeat="item in wahlkreis">
-              {{item.gebiet}}
+              <a href="javascript:void(0)" data-ng-click="selectWahlkreis(item.nr)"> {{item.gebiet}}</a>
             </div>
         </div>
         <div class="col-sm-3">

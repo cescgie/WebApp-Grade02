@@ -76,3 +76,11 @@ def getAllWahlkreis(nr):
         data = formatResult(dicti)
         wahlkreis.append(data)
     return jsonify(wahlkreis)
+
+# Get result from one bundesland by nr    
+@api_blueprint.route('/api/result/bundesland/<nr>')
+def getResultBundesland(nr):
+    result = Result.query.filter(Result.nr == nr).first()
+    dicti = result.__dict__
+    data = formatResult(dicti)
+    return jsonify(data)

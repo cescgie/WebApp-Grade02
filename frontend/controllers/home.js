@@ -2,6 +2,7 @@ angular.module('MyApp')
   .controller('HomeCtrl', function($scope, $http, Result) {
     
     index();
+    allParties();
 
     function index(){
       Result.getResultBundesland()
@@ -20,6 +21,9 @@ angular.module('MyApp')
           toastr.error(response.data.message, response.status);
         });
       
+    }
+
+    function allParties(){
       Result.getAllParties()
         .then(function(response) {
           $scope.parties = response.data;
@@ -37,5 +41,15 @@ angular.module('MyApp')
         .catch(function(response) {
           toastr.error(response.data.message, response.status);
         });
+        
+      Result.getResultOneBundesland(nr)
+        .then(function(response) {
+          $scope.result = response.data;
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+
+      allParties();
     }
   });

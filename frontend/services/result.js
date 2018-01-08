@@ -12,6 +12,9 @@ angular.module('MyApp')
         },
         getWahlkreis: function(id) {
             return $http.get('http://localhost:5000/api/wahlkreis/all/'+id);
+        },
+        getResultOneBundesland: function(id){
+            return $http.get('http://localhost:5000/api/result/bundesland/'+id);
         }
     };
 });

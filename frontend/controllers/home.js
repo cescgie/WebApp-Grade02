@@ -28,8 +28,14 @@ angular.module('MyApp')
           toastr.error(response.data.message, response.status);
         });
     }
-      
+
     $scope.selectBundesland = function(nr){
-      console.log(nr)
+      Result.getWahlkreis(nr)
+        .then(function(response) {
+          $scope.wahlkreis = response.data;
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
     }
   });

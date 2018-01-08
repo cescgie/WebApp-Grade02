@@ -9,6 +9,9 @@ angular.module('MyApp')
         },
         getAllParties: function() {
             return $http.get('http://localhost:5000/api/parties/all');
+        },
+        getWahlkreis: function(id) {
+            return $http.get('http://localhost:5000/api/wahlkreis/all/'+id);
         }
     };
 });

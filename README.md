@@ -20,7 +20,7 @@ Single Web Application  based on [Satellizer](https://github.com/sahat/satellize
     `python manage.py runserver`
     
 ## Frontend Development
-- Run with php runner<br>
-    `php -S http://localhost:8000`
-- Open in browser<br>
-    `http://localhost:8000`
+- Install dependencies<br>
+    `npm install`
+- Start the program<br>
+    `npm start`

@@ -1,24 +1,56 @@
-<div>
-    <div>AngularJS starter application</div>
-    <div>This is Result View</div>
+<div class="container">
     <div class="row">
-        <div class="col-sm-3">
-            <h2>Bundesland</h2>
-            <div ng-repeat="item in bundesland">
-                <a href="javascript:void(0)" data-ng-click="selectBundesland(item.nr)"> {{item.gebiet}}</a>
-            </div>
+        <div class="col-sm-2">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Bundesland</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in bundesland">
+                        <td>
+                            <a href="javascript:void(0)" data-ng-click="selectBundesland(item.nr)"> {{item.gebiet}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>    
         </div>
         <div class="col-sm-3">
-            <h2>Wahlkreis</h2>
-            <div ng-repeat="item in wahlkreis">
-                <a href="javascript:void(0)" data-ng-click="selectWahlkreis(item.nr)"> {{item.gebiet}}</a>
-            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Wahlkreis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in wahlkreis">
+                        <td>
+                            <a href="javascript:void(0)" data-ng-click="selectWahlkreis(item.nr)"> {{item.gebiet}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> 
         </div>
         <div class="col-sm-3">
-            <h2>Ergebnis</h2>
-            <div ng-repeat="item in parties">
-                {{item}} ({{result[item]}})
-            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Ergebnis</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in parties">
+                        <td>
+                            {{item}}
+                        </td>
+                        <td>
+                            {{result[item]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

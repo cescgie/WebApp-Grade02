@@ -14,6 +14,8 @@ myApp.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$httpProvider.defaults.useXDomain = true;
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
+	$locationProvider.hashPrefix('');
+
 	// disabling # in Angular urls
 	// $locationProvider.html5Mode({
 	// 		enabled: true,

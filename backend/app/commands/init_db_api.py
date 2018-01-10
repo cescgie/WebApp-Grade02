@@ -38,7 +38,7 @@ def insert_result_func(result_data):
         christlich_demokratische_union_deutschlands= result_data['christlich_demokratische_union_deutschlands'],
         sozialdemokratische_partei_deutschlands= result_data['sozialdemokratische_partei_deutschlands'],
         die_linke= result_data['die_linke'],
-        bundnis_die_grunen= result_data['bundnis_die_grunen'],
+        buendnis_die_grunen= result_data['buendnis_die_grunen'],
         christlich_soziale_union_bayern_ev= result_data['christlich_soziale_union_bayern_ev'],
         freie_demokratische_partei= result_data['freie_demokratische_partei'],
         alternative_fur_deutschland= result_data['alternative_fur_deutschland'],
@@ -47,7 +47,7 @@ def insert_result_func(result_data):
         freie_wahler= result_data['freie_wahler'],
         partei_mensch_umwelt_tierschutz= result_data['partei_mensch_umwelt_tierschutz'],
         okologisch_demokratische_partei= result_data['okologisch_demokratische_partei'],
-        okologpartei_fur_arbeit_rechtsstaatisch_demokratische_partei= result_data['okologpartei_fur_arbeit_rechtsstaatisch_demokratische_partei'],
+        partei_fuer_arbeit= result_data['partei_fuer_arbeit'],
         bayernpartei= result_data['bayernpartei'],
         ab_jetzt_demokratie_durch_volksabstimmung= result_data['ab_jetzt_demokratie_durch_volksabstimmung'],
         partei_der_vernunft= result_data['partei_der_vernunft'],
@@ -67,16 +67,14 @@ def insert_result_func(result_data):
         menschliche_welt= result_data['menschliche_welt'],
         partei_der_humanisten= result_data['partei_der_humanisten'],
         partei_fur_gesundheitsforschung= result_data['partei_fur_gesundheitsforschung'],
-        v_partei_partei_fur_veranderun_vegetarier_und_veganer= result_data['v_partei_partei_fur_veranderun_vegetarier_und_veganer'],
+        v_partei_fur_veranderun_vegetarier_und_veganer= result_data['v_partei_fur_veranderun_vegetarier_und_veganer'],
         bundnis_c_christen_fur_deutschland= result_data['bundnis_c_christen_fur_deutschland'],
         die_einheit= result_data['die_einheit'],
         die_violetten= result_data['die_violetten'],
         familien_partei_deutschlands= result_data['familien_partei_deutschlands'],
         feministische_partei_die_frauen= result_data['feministische_partei_die_frauen'],
         mieterpartei= result_data['mieterpartei'],
-        neue_liberale_die_sozialliberalen= result_data['neue_liberale_die_sozialliberalen'],
-        unabhangige_fur_burgernahe_demokratie= result_data['unabhangige_fur_burgernahe_demokratie'],
-        ubrige= result_data['ubrige']
+        neue_liberale_die_sozialliberalen= result_data['neue_liberale_die_sozialliberalen']
     )
     db.session.add(result)
     return result

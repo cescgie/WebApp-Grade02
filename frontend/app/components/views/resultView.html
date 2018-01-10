@@ -4,11 +4,13 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Bundesland</th>
+                        <th>
+                            Bundesland <input type="text" class="form-control" placeholder="Wahlkreis" ng-model="searchBundesland">
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in bundesland">
+                    <tr ng-repeat="item in bundesland | filter:searchBundesland">
                         <td>
                             <a href="javascript:void(0)" data-ng-click="selectBundesland(item.nr)"> {{item.gebiet}}</a>
                         </td>
@@ -17,14 +19,17 @@
             </table>    
         </div>
         <div class="col-sm-4">
+            
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Wahlkreis</th>
+                        <th>
+                            Wahlkreis <input type="text" class="form-control" placeholder="Wahlkreis" ng-model="searchWahlkreis">
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in wahlkreis">
+                    <tr ng-repeat="item in wahlkreis | filter:searchWahlkreis">
                         <td>
                             <a href="javascript:void(0)" data-ng-click="selectWahlkreis(item.nr)"> {{item.gebiet}}</a>
                         </td>
@@ -36,12 +41,14 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Ergebnis</th>
+                        <th>
+                            Ergebnis <input type="text" class="form-control" placeholder="Wahlkreis" ng-model="searchParty">
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in parties">
+                    <tr ng-repeat="item in parties | filter:searchParty">
                         <td>
                             {{item}}
                         </td>

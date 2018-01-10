@@ -26,6 +26,9 @@ angular.module('myApp.result', ['ngRoute'])
     allParties();
 
     $scope.message = "Hello About!";
+    $scope.searchWahlkreis   = ''; 
+    $scope.searchParty   = ''; 
+    $scope.searchBundesland   = ''; 
 
 	function init(){
         Result.getResultBundesland()

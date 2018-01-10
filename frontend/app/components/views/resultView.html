@@ -48,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in parties | filter:searchParty">
+                    <tr ng-repeat="item in parties | filter:searchParty" ng-hide="result[item] == 0">
                         <td>
                             {{item}}
                         </td>

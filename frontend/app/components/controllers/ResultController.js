@@ -35,6 +35,10 @@ angular.module('myApp.result', ['ngRoute'])
                 $scope.result = response.data; 
                 allParties().then(function (response) {
                     $scope.parties = response.data; 
+                    
+                    var chart_data = chartData($scope.parties, $scope.result);
+                    chartist(chart_data);
+
                 }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });
@@ -51,6 +55,10 @@ angular.module('myApp.result', ['ngRoute'])
             $scope.result = response.data; 
             allParties().then(function (response) {
                     $scope.parties = response.data; 
+
+                    var chart_data = chartData($scope.parties, $scope.result);
+                    chartist(chart_data);
+
                 }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });
@@ -68,6 +76,10 @@ angular.module('myApp.result', ['ngRoute'])
 
                 allResults().then(function (response) {
                     $scope.result = response.data; 
+
+                    var chart_data = chartData($scope.parties, $scope.result);
+                    chartist(chart_data);
+
                   }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });
@@ -80,7 +92,24 @@ angular.module('myApp.result', ['ngRoute'])
             toastr.error(err.data.message, err.status);
         });
 
-	};
+    };
+    
+    function chartData(parties, result){
+        var res = [];
+        var party = [];
+        parties.forEach(element => {
+            if(result[element]!==0){
+                res.push(result[element]);
+                party.push(element);
+            }
+        });
+        
+        var ret = {
+            result:res,
+            party:party
+        }
+        return ret;
+    }
 
     function allBundeslands(){
         var deferred = $q.defer();
@@ -153,10 +182,10 @@ angular.module('myApp.result', ['ngRoute'])
         return deferred.promise;
     }
 
-    function chartist(){
+    function chartist(data){
         var data = {
-            labels: $scope.parties,
-            series: [20, 15, 40]
+            labels: data.party,
+            series: data.result
           };
           
           var options = {

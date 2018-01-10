@@ -16,7 +16,7 @@ angular.module('myApp.result', ['ngRoute'])
 }])
 
 // Controller definition for this module
-.controller('ResultController', ['$scope','Result', '$q', function($scope, Result, $q) {
+.controller('ResultController', ['$scope','Result', '$q','usSpinnerService', function($scope, Result, $q, usSpinnerService) {
 
 	// Just a housekeeping.
 	// In the init method we are declaring all the
@@ -29,6 +29,7 @@ angular.module('myApp.result', ['ngRoute'])
     $scope.searchBundesland   = ''; 
 
     $scope.selectBundesland = function(nr){
+        usSpinnerService.spin('spinner-1');
         getWahlkreis(nr).then(function (response) {
             $scope.wahlkreis = response.data;
             getResultOneArea(nr).then(function (response) {
@@ -39,6 +40,7 @@ angular.module('myApp.result', ['ngRoute'])
                     var chart_data = chartData($scope.parties, $scope.result);
                     chartist(chart_data);
 
+                    usSpinnerService.stop('spinner-1');
                 }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });
@@ -51,6 +53,8 @@ angular.module('myApp.result', ['ngRoute'])
     }
   
     $scope.selectWahlkreis = function(nr){
+        usSpinnerService.spin('spinner-1');
+
         getResultOneArea(nr).then(function (response) {
             $scope.result = response.data; 
             allParties().then(function (response) {
@@ -58,7 +62,8 @@ angular.module('myApp.result', ['ngRoute'])
 
                     var chart_data = chartData($scope.parties, $scope.result);
                     chartist(chart_data);
-
+                    
+                    usSpinnerService.stop('spinner-1');
                 }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });
@@ -68,6 +73,7 @@ angular.module('myApp.result', ['ngRoute'])
     }
 
 	function init(){
+        usSpinnerService.spin('spinner-1');
         allBundeslands().then(function (response) {
             $scope.bundesland = response.data; 
 
@@ -80,6 +86,7 @@ angular.module('myApp.result', ['ngRoute'])
                     var chart_data = chartData($scope.parties, $scope.result);
                     chartist(chart_data);
 
+                    usSpinnerService.stop('spinner-1');
                   }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });

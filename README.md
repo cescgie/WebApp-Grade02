@@ -14,3 +14,10 @@ Single Web Application
 ## Running
 - Run backend and frontend concurrently on development.<br>
     `npm run dev`
+ 
+- If you have problem with running concurrently, run backend and frontend separately in 2 Terminals or CMDs:
+    - Terminal/CMD 1 for backend:<br>
+    `npm run dev-backend-start`
+    
+    - Terminal/CMD 2 for frontend:<br>
+    `npm run dev-frontend-start`

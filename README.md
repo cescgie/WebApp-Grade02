@@ -2,25 +2,10 @@
 
 Single Web Application
 
+## Pre Installation
+- Install all dependecies of backend and frontend concurrently:<br>
+    `npm run dev-pre-installation`
 
-## Backend Starter
-- If there is no virtualenv yet , create one<br>
-    `virtualenv env`
-- Activate virtualenv<br>
-    `source env/bin/activate`
-- Install requirements<br>
-    `pip install -r requirements.txt`
-- Run with debug<br>
-    `python manage.py runserver`
-    
-## Backend Development
-- Activate virtualenv<br>
-    `source env/bin/activate`
-- Run with debug<br>
-    `python manage.py runserver`
-    
-## Frontend Development
-- Install dependencies<br>
-    `npm install`
-- Start the program<br>
-    `npm start`
+## Running
+- On development:<br>
+    `npm run dev`

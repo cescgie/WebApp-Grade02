@@ -2,9 +2,8 @@
 
 Single Web Application
 
-## Requierements
-- npm
-- node
+## Requirements
+- npm & node
 - python
 - virtualenv
 - pip

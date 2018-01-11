@@ -2,10 +2,15 @@
 
 Single Web Application
 
-## Pre Installation
-- Install all dependecies of backend and frontend concurrently:<br>
+## Dependencies
+- npm ^4.0.0
+- node ^7.0.0
+- python ^2.6
+
+## Installation
+- Install all dependecies of backend and frontend concurrently. Only for the first time!<br>
     `npm run dev-pre-installation`
 
 ## Running
-- On development:<br>
+- Run backend and frontend concurrently on development.<br>
     `npm run dev`

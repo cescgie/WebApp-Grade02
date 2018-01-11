@@ -1,0 +1,24 @@
+{
+  "name": "webapp-grade02",
+  "version": "1.0.0",
+  "description": "Single Web Application",
+  "scripts": {
+    "dev-pre-backend-env": "cd backend && virtualenv env && source env/bin/activate",
+    "dev-pre-backend-installation": "cd backend && pip install -r requirements.txt",
+    "dev-backend-inidb-api": "cd backend && python manage.py init_db_api",
+    "dev-backend-start": "cd backend && python manage.py runserver",
+
+    "dev-pre-frontend": "cd frontend && npm install",
+    "dev-frontend-start": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cescgie/WebApp-Grade02.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cescgie/WebApp-Grade02/issues"
+  },
+  "homepage": "https://github.com/cescgie/WebApp-Grade02#readme"
+}

@@ -73,7 +73,6 @@ angular.module('myApp.result', ['ngRoute'])
     }
 
 	function init(){
-        usSpinnerService.spin('spinner-1');
         allBundeslands().then(function (response) {
             $scope.bundesland = response.data; 
 
@@ -86,7 +85,6 @@ angular.module('myApp.result', ['ngRoute'])
                     var chart_data = chartData($scope.parties, $scope.result);
                     chartist(chart_data);
 
-                    usSpinnerService.stop('spinner-1');
                   }, function (err) {
                     toastr.error(err.data.message, err.status);
                 });

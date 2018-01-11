@@ -2,7 +2,7 @@
 
 // Defining Angular app model with all other dependent modules
 var myApp = angular.module('myApp',['ngRoute',
-	'myApp.home','myApp.about','myApp.login','myApp.result','angularSpinner']);
+	'myApp.result','angularSpinner']);
 
 myApp.config(function($routeProvider, $locationProvider, $httpProvider, usSpinnerConfigProvider) {
 	

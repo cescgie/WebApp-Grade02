@@ -9,7 +9,7 @@ angular.module('myApp.result', ['ngRoute'])
 
 // Routing configuration for this module
 .config(['$routeProvider',function($routeprovider){
-	$routeprovider.when('/result', {
+	$routeprovider.when('/', {
 		controller: 'ResultController',
 		templateUrl: 'components/views/resultView.html'
 	});

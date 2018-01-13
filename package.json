@@ -12,16 +12,6 @@
     "dev-frontend-start": "cd frontend && npm start",
     "dev": "concurrently --kill-others \"npm run dev-backend-start\" \"npm run dev-frontend-start\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cescgie/WebApp-Grade02.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cescgie/WebApp-Grade02/issues"
-  },
-  "homepage": "https://github.com/cescgie/WebApp-Grade02#readme",
   "dependencies": {
     "concurrently": "^3.5.1"
   }

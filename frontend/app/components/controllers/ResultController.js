@@ -23,7 +23,7 @@ angular.module('myApp.result', ['ngRoute'])
 	// neccesarry settings and assignments to be run once
 	// controller is invoked
     init();
-    
+
     $scope.searchWahlkreis   = ''; 
     $scope.searchParty   = ''; 
     $scope.searchBundesland   = ''; 
@@ -38,7 +38,7 @@ angular.module('myApp.result', ['ngRoute'])
                     $scope.parties = response.data; 
                     
                     var chart_data = chartData($scope.parties, $scope.result);
-                    chartist(chart_data);
+                    chartli(chart_data);
 
                     usSpinnerService.stop('spinner-1');
                 }, function (err) {
@@ -61,8 +61,8 @@ angular.module('myApp.result', ['ngRoute'])
                     $scope.parties = response.data; 
 
                     var chart_data = chartData($scope.parties, $scope.result);
-                    chartist(chart_data);
-                    
+                    chartli(chart_data);
+
                     usSpinnerService.stop('spinner-1');
                 }, function (err) {
                     toastr.error(err.data.message, err.status);
@@ -83,7 +83,7 @@ angular.module('myApp.result', ['ngRoute'])
                     $scope.result = response.data; 
 
                     var chart_data = chartData($scope.parties, $scope.result);
-                    chartist(chart_data);
+                    chartli(chart_data);
 
                   }, function (err) {
                     toastr.error(err.data.message, err.status);
@@ -100,20 +100,15 @@ angular.module('myApp.result', ['ngRoute'])
     };
     
     function chartData(parties, result){
-        var res = [];
-        var party = [];
-        parties.forEach(element => {
-            if(result[element]!==0){
-                res.push(result[element]);
-                party.push(element);
-            }
-        });
+        var data = [];
         
-        var ret = {
-            result:res,
-            party:party
+        for (var i = 0; i < parties.length; i++) {
+            var element = parties[i];
+            if(result[element]!==0){
+                data.push({'name': element, 'value': result[element]});
+            }
         }
-        return ret;
+        return data;
     }
 
     function allBundeslands(){
@@ -187,33 +182,43 @@ angular.module('myApp.result', ['ngRoute'])
         return deferred.promise;
     }
 
-    function chartist(data){
-        var data = {
-            labels: data.party,
-            series: data.result
-          };
-          
-          var options = {
-            labelInterpolationFnc: function(value) {
-              return value[0]
-            }
-          };
-          
-          var responsiveOptions = [
-            ['screen and (min-width: 640px)', {
-              chartPadding: 30,
-              labelOffset: 100,
-              labelDirection: 'explode',
-              labelInterpolationFnc: function(value) {
-                return value;
-              }
-            }],
-            ['screen and (min-width: 1024px)', {
-              labelOffset: 80,
-              chartPadding: 20
-            }]
-          ];
-          
-          new Chartist.Pie('.ct-chart', data, options, responsiveOptions);
+    function chartli(chartdata){
+        var chartliexample1 = echarts.init(document.getElementById('pieChart1'));
+
+        var option = {
+            backgroundColor: '#FFFFFF',
+
+            title: {
+                text: 'Bundestagswahl 2017',
+                subtext: '',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br />{b} : {c}"
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            color: ["#84c4ec", "#EF476F", "#699cbc", "#FFD166", "#06D6A0", "#4f758d",  '#344e5e', '#1a272f', "#118AB2",  '#000000', '#8d5f1', "#073B4C"],
+            calculable: true,
+            series: [
+                {
+                    name: 'Bundestagswahl 2017',
+                    type: 'pie',
+                    radius: '75%',
+                    center: ['50%', '60%'],    
+                    data: chartdata
+                }
+            ]
+        };
+
+        chartliexample1.setOption(option);
     }
 }]);
